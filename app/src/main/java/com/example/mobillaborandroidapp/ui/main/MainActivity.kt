@@ -1,7 +1,8 @@
-package com.example.mobillaborandroidapp
+package com.example.mobillaborandroidapp.ui.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mobillaborandroidapp.R
 
 class MainActivity : AppCompatActivity() {
 
