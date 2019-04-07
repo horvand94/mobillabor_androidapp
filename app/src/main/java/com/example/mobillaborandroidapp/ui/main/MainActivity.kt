@@ -6,6 +6,7 @@ import com.example.mobillaborandroidapp.R
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainScreen {
+
     @Inject
     lateinit var mainPresenter: MainPresenter
 
