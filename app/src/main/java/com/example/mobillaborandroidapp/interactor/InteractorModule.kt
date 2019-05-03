@@ -11,5 +11,5 @@ import javax.inject.Singleton
 class InteractorModule {
     @Provides
     @Singleton
-    fun provideMoviesInteractor(moviesApi: MoviesApi, tokenApi: TokenApi) = MoviesInteractor(moviesApi, tokenApi)
+    fun provideMoviesInteractor(moviesApi: MoviesApi) = MoviesInteractor(moviesApi)
 }

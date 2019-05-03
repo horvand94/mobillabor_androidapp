@@ -1,6 +1,6 @@
 package com.example.mobillaborandroidapp.ui.main
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mobillaborandroidapp.R
 import javax.inject.Inject

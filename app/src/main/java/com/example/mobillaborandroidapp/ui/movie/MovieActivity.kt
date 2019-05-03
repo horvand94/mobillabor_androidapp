@@ -2,7 +2,7 @@ package com.example.mobillaborandroidapp.ui.movie
 
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import javax.inject.Inject
 
 class MovieActivity : AppCompatActivity(), MovieScreen  {

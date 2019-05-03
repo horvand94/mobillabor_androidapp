@@ -8,6 +8,7 @@ import com.example.mobillaborandroidapp.ui.movie.MoviePresenter
 import dagger.Module
 import dagger.Provides
 import java.util.concurrent.Executor
+import java.util.concurrent.Executors
 import javax.inject.Singleton
 
 @Module
@@ -27,5 +28,9 @@ class UIModule(private val context: Context) {
     @Provides
     @Singleton
     fun addMoviePresenter() = AddMoviePresenter()
+
+    @Provides
+    @Singleton
+    fun networkExecutor(): Executor = Executors.newFixedThreadPool(1)
 
 }
