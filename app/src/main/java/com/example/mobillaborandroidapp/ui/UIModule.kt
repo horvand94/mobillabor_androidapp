@@ -19,7 +19,7 @@ class UIModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun mainPresenter() = MainPresenter()
+    fun mainPresenter(executor: Executor, moviesInteractor: MoviesInteractor) = MainPresenter(executor, moviesInteractor)
 
     @Provides
     @Singleton

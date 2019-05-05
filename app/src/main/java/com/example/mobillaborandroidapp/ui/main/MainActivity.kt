@@ -1,45 +1,30 @@
 package com.example.mobillaborandroidapp.ui.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mobillaborandroidapp.R
+import com.example.mobillaborandroidapp.ui.addMovie.AddMovieActivity
+import com.example.mobillaborandroidapp.ui.movie.MovieActivity
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.card_movie.*
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), MainScreen {
+class MainActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var mainPresenter: MainPresenter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
+        supportFragmentManager.beginTransaction().replace(R.id.fragment, MainFragment()).commit()
+        fab.setOnClickListener { startActivity(Intent(this, AddMovieActivity::class.java)) }
+
+
+
+
+
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
-
-    override fun showMovies() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun showMovieDetails(movieId: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun deleteMovie(movieId: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun rateMovie(movieId: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun addMovie() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 }
