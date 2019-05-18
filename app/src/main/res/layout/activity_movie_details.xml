@@ -2,12 +2,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:layout_gravity="center">
     <TextView
-            android:id="@+id/tvMovieDetails"
+            android:id="@+id/tvMovieDetailsTitle"
             android:layout_width="match_parent"
             android:layout_height="30dp"
+            android:layout_marginTop="50dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:gravity="center_horizontal"
+            android:text="MovieDetails Activity"/>
+    <ImageView
+            android:id="@+id/ivMovieDetailsImage"
+            android:layout_below="@+id/tvMovieDetailsTitle"
+            android:layout_width="154dp"
+            android:layout_height="231dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" android:baselineAligned="false"/>
+    <RatingBar
+            android:id="@+id/ratingBarMovieDetails"
+            android:layout_below="@+id/ivMovieDetailsImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="30dp"
+            android:numStars="5"
+            android:stepSize="1.0"/>
+    <TextView
+            android:id="@+id/tvMovieDetailsOverview"
+            android:layout_below="@+id/ratingBarMovieDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:gravity="center"
-            android:text="MovieDetails Activity" />
+            android:text="MovieDetails Activity"/>
 
 </LinearLayout>

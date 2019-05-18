@@ -1,5 +1,5 @@
 package com.example.mobillaborandroidapp.ui.addMovie
 
 interface AddMovieScreen {
-    fun addMovieToList()
+    fun addMovieToList(query: String, rating: Float)
 }

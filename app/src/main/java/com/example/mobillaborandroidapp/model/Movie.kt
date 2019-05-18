@@ -26,11 +26,15 @@ data class Movie (
 
     @SerializedName("rating")
     @ColumnInfo(name = "rating")
-    val rating: Int? = null,
+    var rating: Float? = null,
 
     @SerializedName("releaseYear")
     @ColumnInfo(name = "releaseYear")
-    val releaseYear: Int? = null,
+    val releaseDate: String? = null,
+
+    @SerializedName("overview")
+    @ColumnInfo(name = "overview")
+    val overview: String? = null,
 
     @SerializedName("runTime")
     @ColumnInfo(name = "runTime")

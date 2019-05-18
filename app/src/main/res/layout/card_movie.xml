@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                                    android:id="@+id/cardMovie"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:layout_margin="10dp"
-                                    card_view:cardCornerRadius="4dp"
+                                   xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+                                   android:id="@+id/cardMovie"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:layout_gravity="center"
+                                   android:layout_margin="10dp"
+                                   card_view:cardCornerRadius="4dp"
                                    card_view:cardBackgroundColor="#81C784"
                                    card_view:cardElevation="3dp"
                                    card_view:contentPadding="4dp"
@@ -20,8 +21,8 @@
 
         <ImageView
                 android:id="@+id/ivImage"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="92dp"
+                android:layout_height="138dp"
                 android:layout_margin="10dp"
                 android:scaleType="fitXY"
                 android:src="@mipmap/ic_launcher" />
@@ -41,14 +42,29 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-            <TextView
-                    android:id="@+id/tvRating"
+            <RatingBar
+                    android:id="@+id/ratingBarMovies"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/rating"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
+                    android:numStars="5"
+                    android:stepSize="1.0"
+                    style="@android:style/Widget.Material.RatingBar.Small"
+                    android:isIndicator="true"/>
         </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+            <ImageButton
+                        android:id="@+id/btnDelete"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@color/colorAccent"
+                        android:layout_gravity="right"/>
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

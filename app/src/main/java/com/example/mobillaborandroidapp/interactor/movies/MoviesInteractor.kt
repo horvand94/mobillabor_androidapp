@@ -4,24 +4,24 @@ import android.util.Log
 import com.example.mobillaborandroidapp.interactor.movies.event.GetMovieEvent
 import com.example.mobillaborandroidapp.interactor.movies.event.GetMoviesEvent
 import com.example.mobillaborandroidapp.network.MoviesApi
-import com.example.mobillaborandroidapp.network.TokenApi
 import com.example.mobillaborandroidapp.model.Movie
 import org.greenrobot.eventbus.EventBus
 import javax.inject.Inject
 
 class MoviesInteractor @Inject constructor(private var moviesApi: MoviesApi) {
 
+    /*
     val movieList = listOf(
-        Movie(1L, "Inception", "Sci-fi", "", 9, 2010, 140, "", null),
-        Movie(2L, "The Dark Knight", "Action", "", 10, 2008, 160, "", null),
-        Movie(3L, "The Hangover", "Comedy", "", 8, 2009, 100, "", null)
+        Movie(1L, "Inception", "Sci-fi", "", 9, "2010", 140, "", null),
+        Movie(2L, "The Dark Knight", "Action", "", 10, "2008", 160, "", null),
+        Movie(3L, "The Hangover", "Comedy", "", 8, "2009", 100, "", null)
 
-    )
+    )*/
 
     fun getMovies() {
         val event = GetMoviesEvent()
         try {
-            /*
+
             val moviesQueryCall = moviesApi.movies
 
             val response = moviesQueryCall.execute()
@@ -31,10 +31,12 @@ class MoviesInteractor @Inject constructor(private var moviesApi: MoviesApi) {
             }
             event.code = response.code()
             event.movies = response.body()
-            */
 
+
+            /*
             event.code = 200
             event.movies = movieList
+            */
             EventBus.getDefault().post(event)
         } catch (e: Exception) {
             event.throwable = e
@@ -42,14 +44,12 @@ class MoviesInteractor @Inject constructor(private var moviesApi: MoviesApi) {
         }
     }
 
-    fun addMovie(movieQuery: String) {
-        //TODO: TMDB-re egy kérés a query-vel, és a válaszból összeállítani a movie objektumot
-        var movie = Movie()
-        val addMovieQueryCall = moviesApi.addMovie(movie)
+    fun addMovie(movieQuery: String, rating: Float) {
+        val addMovieQueryCall = moviesApi.addMovie(movieQuery, rating)
         addMovieQueryCall.execute()
     }
 
-    fun getMovieById(movieId: Long) {
+    fun getMovieById(movieId: Int) {
         val event = GetMovieEvent()
         try {
             val getMovieByIdQueryCall = moviesApi.getMovieById(movieId)
@@ -68,12 +68,12 @@ class MoviesInteractor @Inject constructor(private var moviesApi: MoviesApi) {
         }
     }
 
-    fun updateMovieRating(movieId: Long, movie: Movie) {
-        val updateMovieRatingQueryCall = moviesApi.updateMovieRating(movieId, movie)
+    fun updateMovieRating(movieId: Int?, rating: Float) {
+        val updateMovieRatingQueryCall = moviesApi.updateMovieRating(movieId, rating)
         updateMovieRatingQueryCall.execute()
     }
 
-    fun deleteMovie(movieId: Long)
+    fun deleteMovie(movieId: Int)
     {
         val deleteMovieQueryCall = moviesApi.deleteMovie(movieId)
         deleteMovieQueryCall.execute()

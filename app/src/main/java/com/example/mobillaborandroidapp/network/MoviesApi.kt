@@ -30,8 +30,10 @@ interface MoviesApi {
     </Void> */
 
     @POST("Movies")
+    @FormUrlEncoded
     fun addMovie(
-        @Body body: Movie
+        @Field("movieTitle") title: String,
+        @Field("rating") rating: Float
     ): Call<Void>
 
 
@@ -44,7 +46,7 @@ interface MoviesApi {
 
     @GET("Movies/{movieId}")
     fun getMovieById(
-        @Path("movieId") movieId: Long?
+        @Path("movieId") movieId: Int?
     ): Call<Movie>
 
 
@@ -57,8 +59,9 @@ interface MoviesApi {
     </Void> */
 
     @PUT("Movies/{movieId}")
+    @FormUrlEncoded
     fun updateMovieRating(
-        @Path("movieId") movieId: Long?, @Body body: Movie
+        @Path("movieId") movieId: Int?, @Field("rating") rating: Float
     ): Call<Void>
 
 
@@ -71,7 +74,7 @@ interface MoviesApi {
 
     @DELETE("Movies/{movieId}")
     fun deleteMovie(
-        @Path("movieId") movieId: Long?
+        @Path("movieId") movieId: Int?
     ): Call<Void>
 
 

@@ -27,7 +27,7 @@ class UIModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun addMoviePresenter() = AddMoviePresenter()
+    fun addMoviePresenter(executor: Executor, moviesInteractor: MoviesInteractor) = AddMoviePresenter(executor, moviesInteractor)
 
     @Provides
     @Singleton

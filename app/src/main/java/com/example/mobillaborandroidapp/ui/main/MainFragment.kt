@@ -19,9 +19,10 @@ import kotlinx.android.synthetic.main.card_movie.*
 import kotlinx.android.synthetic.main.fragment_movies.*
 import javax.inject.Inject
 
+
 class MainFragment: Fragment(), MainScreen {
 
-    private val displayedMovies: MutableList<Movie> = mutableListOf()
+    private val displayedMovies: ArrayList<Movie> = ArrayList<Movie>()
     private var mainAdapter: MainAdapter? = null
 
     @Inject
@@ -49,7 +50,10 @@ class MainFragment: Fragment(), MainScreen {
         llm.orientation = RecyclerView.VERTICAL
         recyclerViewMovies.layoutManager = llm
 
-        mainAdapter = MainAdapter(context!!, displayedMovies)
+
+
+
+        mainAdapter = MainAdapter(context!!, displayedMovies, mainPresenter)
         recyclerViewMovies.adapter = mainAdapter
 
         mainPresenter.showMovies()
@@ -89,20 +93,9 @@ class MainFragment: Fragment(), MainScreen {
         */
     }
 
-    override fun showMovieDetails(movieId: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun refresh() {
+        fragmentManager!!.beginTransaction().detach(this).attach(this).commit()
 
-    override fun deleteMovie(movieId: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun rateMovie(movieId: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun addMovie() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }
