@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "444811725981",
+    "firebase_url": "https://mobil-labor-android-app.firebaseio.com",
+    "project_id": "mobil-labor-android-app",
+    "storage_bucket": "mobil-labor-android-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:444811725981:android:20fb88505d72f694",
+        "android_client_info": {
+          "package_name": "com.example.mobillaborandroidapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "444811725981-ja7l15bp94u6b20se9dj63jmfouujlfb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwsrHa9wSbPuuD6A0PTV8d0xx0WiPoOrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "444811725981-ja7l15bp94u6b20se9dj63jmfouujlfb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
