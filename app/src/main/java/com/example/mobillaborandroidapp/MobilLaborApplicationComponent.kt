@@ -1,7 +1,7 @@
 package com.example.mobillaborandroidapp
 
 import com.example.mobillaborandroidapp.interactor.InteractorModule
-import com.example.mobillaborandroidapp.mock.MockNetworkModule
+import com.example.mobillaborandroidapp.network.MockNetworkModule
 import com.example.mobillaborandroidapp.ui.UIModule
 import com.example.mobillaborandroidapp.ui.addMovie.AddMovieActivity
 import com.example.mobillaborandroidapp.ui.main.MainActivity

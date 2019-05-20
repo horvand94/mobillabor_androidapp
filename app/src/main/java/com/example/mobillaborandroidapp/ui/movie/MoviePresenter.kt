@@ -43,7 +43,6 @@ class MoviePresenter @Inject constructor(private val executor: Executor, private
                 if (event.movie != null) {
                     screen?.showDetails(event.movie as Movie)
                 }
-
             }
         }
     }

@@ -50,9 +50,6 @@ class MainFragment: Fragment(), MainScreen {
         llm.orientation = RecyclerView.VERTICAL
         recyclerViewMovies.layoutManager = llm
 
-
-
-
         mainAdapter = MainAdapter(context!!, displayedMovies, mainPresenter)
         recyclerViewMovies.adapter = mainAdapter
 
@@ -61,7 +58,6 @@ class MainFragment: Fragment(), MainScreen {
         swipeRefreshLayoutMovies.setOnRefreshListener {
             mainPresenter.showMovies()
         }
-
     }
 
     override fun onResume() {
@@ -81,21 +77,10 @@ class MainFragment: Fragment(), MainScreen {
             displayedMovies.addAll(movies)
         }
         mainAdapter?.notifyDataSetChanged()
-
-        /*
-        if (displayedMovies.isEmpty()) {
-            recyclerViewMovies
-            tvEmpty.show()
-        } else {
-            recyclerViewArtists.show()
-            tvEmpty.hide()
-        }
-        */
     }
 
     override fun refresh() {
         fragmentManager!!.beginTransaction().detach(this).attach(this).commit()
-
     }
 
 }

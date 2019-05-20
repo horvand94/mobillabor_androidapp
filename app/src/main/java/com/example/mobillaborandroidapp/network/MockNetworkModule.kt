@@ -1,10 +1,5 @@
-package com.example.mobillaborandroidapp.mock
+package com.example.mobillaborandroidapp.network
 
-import com.example.mobillaborandroidapp.mock.interceptors.MockInterceptor
-import com.example.mobillaborandroidapp.network.MockMoviesApi
-import com.example.mobillaborandroidapp.network.MoviesApi
-import com.example.mobillaborandroidapp.network.NetworkConfig
-import com.example.mobillaborandroidapp.network.TmdbApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -23,28 +18,6 @@ class MockNetworkModule {
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient.Builder().addInterceptor(interceptor).build()
     }
-
-    /*
-    @Provides
-    @Singleton
-    fun provideOkHttpClient(builder: OkHttpClient.Builder): OkHttpClient {
-        builder.interceptors().add(builder.interceptors().size, MockInterceptor())
-        return builder.build()
-    }
-    */
-
-    /*
-    @Provides
-    @Singleton
-    fun provideMoviesApi(client: OkHttpClient) : MoviesApi {
-        val retrofit = Retrofit.Builder()
-            .client(client)
-            .baseUrl(NetworkConfig.SERVICE_ENDPOINT)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        return retrofit.create(MoviesApi::class.java)
-    }
-    */
 
     @Provides
     @Singleton

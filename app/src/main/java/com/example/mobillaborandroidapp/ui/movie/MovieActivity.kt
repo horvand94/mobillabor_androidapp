@@ -36,9 +36,8 @@ class MovieActivity : AppCompatActivity(), MovieScreen, RatingBar.OnRatingBarCha
         injector.inject(this)
         moviePresenter.attachScreen(this)
 
-        val ss:String = intent.getStringExtra("MovieItemPosition")
-        val ss2:String = intent.getStringExtra("MovieItemTitle")
-        val pos = ss.toInt()
+        val position:String = intent.getStringExtra("MovieItemPosition")
+        val pos = position.toInt()
         moviePresenter.showDetails(pos)
     }
 
@@ -48,14 +47,11 @@ class MovieActivity : AppCompatActivity(), MovieScreen, RatingBar.OnRatingBarCha
         Glide.with(this).load(url).into(ivMovieDetailsImage)
         tvMovieDetailsOverview.text = movie.overview
         ratingBarMovieDetails.rating = movie.rating!!
-
-
     }
 
     override fun onRatingChanged(p0: RatingBar?, p1: Float, p2: Boolean) {
-
-        val ss:String = intent.getStringExtra("MovieItemPosition")
-        val pos = ss.toInt()
+        val position:String = intent.getStringExtra("MovieItemPosition")
+        val pos = position.toInt()
         moviePresenter.updateMovieRating(pos, p1)
     }
 

@@ -1,12 +1,6 @@
-package com.example.mobillaborandroidapp.mock.interceptors
+package com.example.mobillaborandroidapp.network.interceptors
 
-import android.net.Uri
 import com.example.mobillaborandroidapp.model.Movie
-import com.example.mobillaborandroidapp.network.NetworkConfig
-import com.google.gson.Gson;
-import okhttp3.Request
-import okhttp3.Response
-import kotlin.math.absoluteValue
 
 object MoviesMock {
 
@@ -68,57 +62,4 @@ object MoviesMock {
     fun deleteMovie(movieId: Int?) {
         movieList.removeAt(movieId!!)
     }
-
-
-
-    /*
-
-    fun process(request: Request): Response {
-        val uri = Uri.parse(request.url().toString())
-
-        val responseString: String
-        val responseCode: Int
-        val headers = request.headers()
-
-
-        CAST1.add("Leonardo DiCaprio");
-        CAST1.add("Joseph Gordon-Levitt");
-        CAST1.add("Ellen Page");
-
-        CAST2.add("Bradley Cooper");
-        CAST2.add("Ed Helms");
-        CAST2.add("Zach Galifianakis");
-
-        movieList = listOf(
-            Movie(ID1, TITLE1, GENRE1, POSTERURL1, RATING1, RELEASEYEAR1, RUNTIME1, DIRECTOR1, CAST1),
-            Movie(ID2, TITLE2, GENRE2, POSTERURL2, RATING2, RELEASEYEAR2, RUNTIME2, DIRECTOR2, CAST2)
-        ) as ArrayList<Movie>
-
-
-        if (uri.path == NetworkConfig.ENDPOINT_PREFIX + "Movies" && request.method() == "GET") {
-            var gson = Gson()
-            responseString = gson.toJson(movieList)
-            responseCode = 200
-        } else if (uri.path == NetworkConfig.ENDPOINT_PREFIX + "Movies" && request.method() == "POST") {
-
-            var movie : Movie
-
-            //TODO: a KotifyDemo TmdbApi mock-jához hasonlóan kéne megoldani
-            // -> Body helyett Field annotációkkal az egyes paraméterekre!!
-            //movie = request.body() as Movie
-
-            var title = request.body();
-            //movieList.add(movie)
-
-            responseString = "Movie added successfully"
-            responseCode = 200
-        } else {
-            responseString = "ERROR"
-            responseCode = 503
-        }
-
-        return MockHelper.makeResponse(request, headers, responseCode, responseString)
-    }
-    */
-
 }

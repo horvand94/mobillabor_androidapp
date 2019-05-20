@@ -12,14 +12,6 @@ import javax.inject.Inject
 
 class MainPresenter @Inject constructor(private val executor: Executor, private val moviesInteractor: MoviesInteractor) : Presenter<MainScreen>() {
 
-    /*
-    val movieList = listOf(
-        Movie(1L, "Inception", "Sci-fi", "", 9, 2010, 140, "", null),
-        Movie(2L, "The Dark Knight", "Action", "", 10, 2008, 160, "", null),
-        Movie(3L, "The Hangover", "Comedy", "", 8, 2009, 100, "", null)
-
-    )*/
-
     override fun attachScreen(screen: MainScreen) {
         super.attachScreen(screen)
         EventBus.getDefault().register(this)
@@ -34,7 +26,6 @@ class MainPresenter @Inject constructor(private val executor: Executor, private 
         executor.execute {
             moviesInteractor.getMovies()
         }
-        //screen?.showMovies(movieList as MutableList<Movie>)
     }
 
     fun deleteMovie(movieId: Int) {
@@ -54,7 +45,6 @@ class MainPresenter @Inject constructor(private val executor: Executor, private 
                 if (event.movies != null) {
                     screen?.showMovies(event.movies as MutableList<Movie>)
                 }
-
             }
         }
     }

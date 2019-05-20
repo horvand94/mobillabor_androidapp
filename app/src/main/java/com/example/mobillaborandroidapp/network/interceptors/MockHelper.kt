@@ -1,4 +1,4 @@
-package com.example.mobillaborandroidapp.mock.interceptors
+package com.example.mobillaborandroidapp.network.interceptors
 
 import okhttp3.Headers
 import okhttp3.MediaType

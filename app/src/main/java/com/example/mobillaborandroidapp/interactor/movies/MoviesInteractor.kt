@@ -10,18 +10,9 @@ import javax.inject.Inject
 
 class MoviesInteractor @Inject constructor(private var moviesApi: MoviesApi) {
 
-    /*
-    val movieList = listOf(
-        Movie(1L, "Inception", "Sci-fi", "", 9, "2010", 140, "", null),
-        Movie(2L, "The Dark Knight", "Action", "", 10, "2008", 160, "", null),
-        Movie(3L, "The Hangover", "Comedy", "", 8, "2009", 100, "", null)
-
-    )*/
-
     fun getMovies() {
         val event = GetMoviesEvent()
         try {
-
             val moviesQueryCall = moviesApi.movies
 
             val response = moviesQueryCall.execute()
@@ -31,12 +22,6 @@ class MoviesInteractor @Inject constructor(private var moviesApi: MoviesApi) {
             }
             event.code = response.code()
             event.movies = response.body()
-
-
-            /*
-            event.code = 200
-            event.movies = movieList
-            */
             EventBus.getDefault().post(event)
         } catch (e: Exception) {
             event.throwable = e
@@ -73,8 +58,7 @@ class MoviesInteractor @Inject constructor(private var moviesApi: MoviesApi) {
         updateMovieRatingQueryCall.execute()
     }
 
-    fun deleteMovie(movieId: Int)
-    {
+    fun deleteMovie(movieId: Int) {
         val deleteMovieQueryCall = moviesApi.deleteMovie(movieId)
         deleteMovieQueryCall.execute()
     }

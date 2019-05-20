@@ -25,7 +25,6 @@ class MainAdapter constructor(
     private var movies: ArrayList<Movie>,
     private val mainPresenter: MainPresenter) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(context).inflate(com.example.mobillaborandroidapp.R.layout.card_movie, parent, false)
         return ViewHolder(itemView)
@@ -46,11 +45,8 @@ class MainAdapter constructor(
 
         holder.ratingBar.rating = movie.rating!!
 
-
         val url = "http://image.tmdb.org/t/p/w92" + movie.posterUrl
         Glide.with(context).load(url).into(holder.ivImage)
-
-
     }
 
 
@@ -64,18 +60,12 @@ class MainAdapter constructor(
             view.setOnClickListener { v: View  ->
                 var position: Int = adapterPosition
 
-                Snackbar.make(v, "Click detected on item $position",
-                    Snackbar.LENGTH_LONG).setAction("Action", null).show()
-
                 var context = view.context
                 val intent = Intent(context, MovieActivity::class.java)
                 intent.putExtra("MovieItemPosition", position.toString())
                 intent.putExtra("MovieItemTitle", view.tvTitle.text)
                 context.startActivity(intent)
-
             }
         }
-
     }
-
 }

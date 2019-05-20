@@ -1,14 +1,11 @@
 package com.example.mobillaborandroidapp.network
 
-import android.util.Log
-import com.example.mobillaborandroidapp.mock.interceptors.MockHelper
-import com.example.mobillaborandroidapp.mock.interceptors.MoviesMock
+import com.example.mobillaborandroidapp.network.interceptors.MoviesMock
 import com.example.mobillaborandroidapp.model.Movie
 import okhttp3.Request
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.net.URL
 import javax.inject.Inject
 
 class MockMoviesApi @Inject constructor(private var tmdbApi: TmdbApi) : MoviesApi

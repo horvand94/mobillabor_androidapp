@@ -1,8 +1,8 @@
-package com.example.mobillaborandroidapp.mock.interceptors
+package com.example.mobillaborandroidapp.network.interceptors
 
 import android.net.Uri
 import android.util.Log
-import com.example.mobillaborandroidapp.network.NetworkConfig
+import com.example.mobillaborandroidapp.network.interceptors.MockHelper
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response

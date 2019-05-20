@@ -18,15 +18,14 @@ class AddMovieActivity : AppCompatActivity(), AddMovieScreen {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_add)
 
-
-
         btnAddMovie.setOnClickListener {
             val rating = ratingBar.rating
-            addMovieToList(addMovieQuery.text.toString(), rating)
+            val query = addMovieQuery.text.toString()
+            addMoviePresenter.addMovieToList(query, rating)
+            //addMovieToList(addMovieQuery.text.toString(), rating)
             finish()
         }
     }
-
 
     override fun onStart() {
         super.onStart()
@@ -39,10 +38,10 @@ class AddMovieActivity : AppCompatActivity(), AddMovieScreen {
         super.onStop()
     }
 
+    /*
     override fun addMovieToList(query: String, rating: Float) {
-
         addMoviePresenter.addMovieToList(query, rating)
-
     }
+    */
 
 }
